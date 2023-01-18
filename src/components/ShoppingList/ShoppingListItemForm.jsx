@@ -15,6 +15,7 @@ export default function ShoppingListItemForm({
     useState(shoppingListItem || defaultShoppingListItem);
   return (
     <form
+      data-testid={`shopping-list-item-form-${id}`}
       onSubmit={(e) => {
         e.preventDefault();
         onSubmit(currentShoppingListItem);
@@ -23,6 +24,7 @@ export default function ShoppingListItemForm({
       }}
     >
       <input
+        data-testid={`shopping-list-item-form-name-${id}`}
         type="text"
         placeholder="item"
         value={currentShoppingListItem.item_name}
@@ -34,6 +36,7 @@ export default function ShoppingListItemForm({
         }
       />
       <input
+        data-testid={`shopping-list-item-form-quantity-${id}`}
         type="number"
         placeholder="qty"
         value={currentShoppingListItem.quantity}
@@ -44,7 +47,12 @@ export default function ShoppingListItemForm({
           })
         }
       />
-      <button type="submit">Add Item</button>
+      <button
+        data-testid={`shopping-list-item-form-submit-button-${id}`}
+        type="submit"
+      >
+        Add Item
+      </button>
     </form>
   );
 }
